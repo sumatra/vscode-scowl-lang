@@ -1,0 +1,160 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Scowl",
+	"patterns": [
+		{
+			"include": "#keyword"
+		},
+		{
+			"include": "#string_double"
+		},
+		{
+			"include": "#string_single"
+		},
+		{
+			"include": "#comment"
+		},
+		{
+			"include": "#operator"
+		},
+		{
+			"include": "#storage_type"
+		},
+		{
+			"include": "#constant"
+		},
+		{
+			"include": "#numeric_literals"
+		},
+		{
+			"include": "#json_path"
+		},
+		{
+			"include": "#variable"
+		},
+		{
+			"include": "#event"
+		},
+		{
+			"include": "#function"
+		}
+	],
+	"repository": {
+		"keyword": {
+			"patterns": [
+				{
+					"name": "keyword.control.scowl",
+					"match": "\\b(rule|decision|as|by|when|then|contains|in|where|last|after|because)\\b"
+				},
+				{
+					"name": "keyword.control.import",
+					"match": "\\b(event)\\b"
+				}
+			]
+		},
+		"constant": {
+			"patterns": [
+				{
+					"name": "constant.language.scowl",
+					"match": "\\b(true|false|null|second|seconds|minute|minutes|hour|hours|day|days|week|weeks)\\b"
+				}
+			]
+		},
+		"operator": {
+			"patterns": [
+				{
+					"match": "(\\bis\\b|\\bis not\\b|=|!=|<=|>=|<(?!<)|>(?!>))",
+					"name": "keyword.operator.comparison.scowl"
+				},
+				{
+					"match": "\\b(and|or|not)\\b",
+					"name": "keyword.operator.logical.scowl"
+				},
+				{
+					"match": "(:=)",
+					"name": "keyword.operator.assignment.scowl"
+				},
+				{
+					"match": "(\\+|\\-|\\*|/|//)",
+					"name": "keyword.operator.arithmetic.go"
+				}
+			]
+		},
+		"storage_type": {
+			"patterns": [
+				{
+					"match": "\\b(bool|int|float|string|time)\\b",
+					"name": "support.type.builtin.scowl"
+				}
+			]
+		},
+		"string_double": {
+			"name": "string.quoted.double.scowl",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.scowl",
+					"match": "\\\\."
+				}
+			]
+		},
+		"string_single": {
+			"name": "string.quoted.single.scowl",
+			"begin": "'",
+			"end": "'",
+			"patterns": [
+				{
+					"name": "constant.character.escape.scowl",
+					"match": "\\\\."
+				}
+			]
+		},
+		"event": {
+			"name": "meta.generic.scowl",
+			"begin": "<",
+			"end": ">"
+		},
+		"comment": {
+			"name": "comment.line.scowl",
+			"begin": "(--)",
+			"beginCaptures": {
+				"1": {
+					"name": "punctuation.definition.comment.scowl"
+				}
+			},
+			"end": "(?:\\n|$)"
+		},
+		"json_path": {
+			"name": "string.unquoted.jsonpath.scowl",
+			"match": "\\$\\.[\\w-]+(\\.[\\w-]+)*"
+		},
+		"numeric_literals": {
+			"patterns": [
+				{
+					"include": "#float"
+				},
+				{
+					"include": "#integer"
+				}
+			]
+		},
+		"float": {
+			"match": "(\\.\\d+([Ee][-+]\\d+)?i?)\\b|\\b\\d+\\.\\d*(([Ee][-+]\\d+)?i?\\b)?",
+			"name": "constant.numeric.floating-point.scowl"
+		},
+		"integer": {
+			"match": "\\b((0x[0-9a-fA-F]+)|(0[0-7]+i?)|(\\d+([Ee]\\d+)?i?)|(\\d+[Ee][-+]\\d+i?))\\b",
+			"name": "constant.numeric.integer.scowl"
+		},
+		"variable": {
+			"match": "[a-z_][a-z0-9_]*",
+			"name": "variable.other.scowl"
+		},
+		"function": {
+			"match": "[A-Z]\\w*",
+			"name": "entity.name.function.scowl"
+		}
+	},
+	"scopeName": "source.scowl"
+}

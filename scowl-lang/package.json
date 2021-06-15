@@ -1,0 +1,25 @@
+{
+    "name": "scowl-lang",
+    "displayName": "Scowl Language",
+    "description": "Syntax Highlighting for Scowl Language",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.44.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "scowl",
+            "aliases": ["Scowl", "scowl"],
+            "extensions": [".scowl"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "scowl",
+            "scopeName": "source.scowl",
+            "path": "./syntaxes/scowl.tmLanguage.json"
+        }]
+    }
+}
