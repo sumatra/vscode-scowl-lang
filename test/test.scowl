@@ -1,0 +1,27 @@
+-- Example scowl to test lexer
+
+event test -- this is a comment
+
+my_float := $.my_float as float
+my_int := $.my_int as int ? 0
+my_bool := $.my_bool as bool ? false
+my_map := $ as map{'my_bool': bool, 'my_float': float?, 'my_int': int ? 0}
+my_struct := $ as {my_bool: bool, my_float: float?, my_int: int ? 0}
+my_ints := [1, 2, 3, null]
+
+feat := Foo(my_int, my_bool)
+feat2 := my_map.Keys()
+agg := Latest<login>(device by ip where is_filter after my_time last 34 days exclusive)
+
+decision := Decision(Allow, Block default Block)
+rule := Block when my_float > -9.5 + 1.0e-2 + 1e5 because "high float value"
+
+case := Case(
+    when my_bool then 5
+    default 4
+)
+
+val := 5 >> 6 ^ 9 | 5 // 4 & 3 % ~2
+val2 := val is not null and 2 in [1, 2] and rule = true or my_float != 5
+
+5illegal_name

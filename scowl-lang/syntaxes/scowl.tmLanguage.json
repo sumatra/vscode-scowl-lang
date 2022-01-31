@@ -24,7 +24,7 @@
 			"include": "#constant"
 		},
 		{
-			"include": "#numeric_literals"
+			"include": "#number"
 		},
 		{
 			"include": "#json_path"
@@ -44,7 +44,7 @@
 			"patterns": [
 				{
 					"name": "keyword.control.scowl",
-					"match": "\\b(rule|decision|as|by|when|then|contains|in|where|last|after|because)\\b"
+					"match": "\\b(default|exclusive|as|by|when|then|is|in|where|last|after|because)\\b"
 				},
 				{
 					"name": "keyword.control.import",
@@ -56,18 +56,30 @@
 			"patterns": [
 				{
 					"name": "constant.language.scowl",
-					"match": "\\b(true|false|null|second|seconds|minute|minutes|hour|hours|day|days|week|weeks)\\b"
+					"match": "\\b(inf|true|false|null|second|seconds|minute|minutes|hour|hours|day|days|week|weeks)\\b"
 				}
 			]
 		},
 		"operator": {
 			"patterns": [
 				{
-					"match": "(\\bis\\b|\\bis not\\b|=|!=|<=|>=|<(?!<)|>(?!>))",
+					"match": "(=|!=|<=|>=|<(?!<)|>(?!>))",
 					"name": "keyword.operator.comparison.scowl"
 				},
 				{
 					"match": "\\b(and|or|not)\\b",
+					"name": "keyword.operator.word.scowl"
+				},
+				{
+					"match": "(<<|>>|&|\\||\\^|~)",
+					"name": "keyword.operator.bitwise.scowl"
+				},
+				{
+					"match": ":",
+					"name": "punctuation.separator.dict.scowl"
+				},
+				{
+					"match": "\\?",
 					"name": "keyword.operator.logical.scowl"
 				},
 				{
@@ -75,7 +87,7 @@
 					"name": "keyword.operator.assignment.scowl"
 				},
 				{
-					"match": "(\\+|\\-|\\*|/|//)",
+					"match": "(\\+|\\-|\\*|/|//|%)",
 					"name": "keyword.operator.arithmetic.go"
 				}
 			]
@@ -83,7 +95,7 @@
 		"storage_type": {
 			"patterns": [
 				{
-					"match": "\\b(bool|int|float|string|time)\\b",
+					"match": "\\b(bool|int|float|string|time|map)\\b",
 					"name": "support.type.builtin.scowl"
 				}
 			]
@@ -127,24 +139,29 @@
 		},
 		"json_path": {
 			"name": "string.unquoted.jsonpath.scowl",
-			"match": "\\$\\.[\\w-]+(\\.[\\w-]+)*"
+			"match": "\\$[^\\s]*"
 		},
-		"numeric_literals": {
+		"number": {
+			"name": "constant.numeric.scowl",
 			"patterns": [
 				{
 					"include": "#float"
 				},
 				{
 					"include": "#integer"
+				},
+				{
+					"name": "invalid.illegal.name.scowl",
+					"match": "\\b[0-9]+\\w+"
 				}
 			]
 		},
 		"float": {
-			"match": "(\\.\\d+([Ee][-+]\\d+)?i?)\\b|\\b\\d+\\.\\d*(([Ee][-+]\\d+)?i?\\b)?",
+			"match": "(\\d+\\.\\d+|\\.?\\d+)[eE][-+]?\\d+|\\d+\\.\\d+|\\.\\d+",
 			"name": "constant.numeric.floating-point.scowl"
 		},
 		"integer": {
-			"match": "\\b((0x[0-9a-fA-F]+)|(0[0-7]+i?)|(\\d+([Ee]\\d+)?i?)|(\\d+[Ee][-+]\\d+i?))\\b",
+			"match": "\\d+\\b",
 			"name": "constant.numeric.integer.scowl"
 		},
 		"variable": {
