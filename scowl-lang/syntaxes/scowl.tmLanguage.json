@@ -44,7 +44,7 @@
 			"patterns": [
 				{
 					"name": "keyword.control.scowl",
-					"match": "\\b(default|exclusive|as|by|when|then|is|in|where|last|after|because)\\b"
+					"match": "\\b(after|as|because|by|default|exclusive|func|in|is|last|map|then|type|when|where)\\b"
 				},
 				{
 					"name": "keyword.control.import",
