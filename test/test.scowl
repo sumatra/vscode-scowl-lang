@@ -2,6 +2,8 @@
 
 event test -- this is a comment
 
+path := $.path\ with\ SPACE$init! as int
+
 my_float := $.my_float as float
 my_int := $.my_int as int ? 0
 my_bool := $.my_bool as bool ? false

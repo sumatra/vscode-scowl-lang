@@ -139,7 +139,7 @@
 		},
 		"json_path": {
 			"name": "string.unquoted.jsonpath.scowl",
-			"match": "\\$[^\\s]*"
+			"match": "\\$(\\\\\\s|[^\\s])*"
 		},
 		"number": {
 			"name": "constant.numeric.scowl",
