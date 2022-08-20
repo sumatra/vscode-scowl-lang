@@ -1,5 +1,7 @@
 -- Example scowl to test lexer
 
+table my_table {foo: string} indexed by foo
+
 event test -- this is a comment
 
 path := $.path\ with\ SPACE$init! as int

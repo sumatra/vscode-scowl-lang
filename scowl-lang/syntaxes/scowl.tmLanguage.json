@@ -44,11 +44,11 @@
 			"patterns": [
 				{
 					"name": "keyword.control.scowl",
-					"match": "\\b(after|as|because|by|default|exclusive|func|in|is|last|map|then|type|when|where)\\b"
+					"match": "\\b(after|as|because|by|default|exclusive|func|in|indexed|is|last|map|then|type|when|where)\\b"
 				},
 				{
 					"name": "keyword.control.import",
-					"match": "\\b(event)\\b"
+					"match": "\\b(event|table)\\b"
 				}
 			]
 		},
