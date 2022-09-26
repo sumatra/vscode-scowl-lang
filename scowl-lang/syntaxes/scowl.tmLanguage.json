@@ -44,11 +44,11 @@
 			"patterns": [
 				{
 					"name": "keyword.control.scowl",
-					"match": "\\b(after|as|because|by|default|exclusive|func|in|indexed|is|last|map|then|type|when|where)\\b"
+					"match": "\\b(after|as|because|by|default|exclusive|func|in|indexed|is|last|map|require|then|type|when|where)\\b"
 				},
 				{
 					"name": "keyword.control.import",
-					"match": "\\b(event|table)\\b"
+					"match": "\\b(event)\\b"
 				}
 			]
 		},
@@ -56,7 +56,7 @@
 			"patterns": [
 				{
 					"name": "constant.language.scowl",
-					"match": "\\b(inf|true|false|null|second|seconds|minute|minutes|hour|hours|day|days|week|weeks)\\b"
+					"match": "\\b(inf|true|false|null|second|seconds|minute|minutes|hour|hours|day|days|week|weeks|millisecond|milliseconds|microsecond|microseconds|nanosecond|nanoseconds)\\b"
 				}
 			]
 		},
@@ -95,7 +95,7 @@
 		"storage_type": {
 			"patterns": [
 				{
-					"match": "\\b(bool|int|float|string|time|map)\\b",
+					"match": "\\b(bool|int|float|string|time|map|table)\\b",
 					"name": "support.type.builtin.scowl"
 				}
 			]

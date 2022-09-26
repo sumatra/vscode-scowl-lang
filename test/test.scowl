@@ -1,6 +1,10 @@
 -- Example scowl to test lexer
 
 table my_table {foo: string} indexed by foo
+require table (
+    marketing v1234
+    geoip v5678
+)
 
 event test -- this is a comment
 
@@ -28,5 +32,6 @@ case := Case(
 
 val := 5 >> 6 ^ 9 | 5 // 4 & 3 % ~2
 val2 := val is not null and 2 in [1, 2] and rule = true or my_float != 5
+val3 := 1 nanosecond + 2 microseconds + 3 milliseconds
 
 5illegal_name
